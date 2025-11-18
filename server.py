@@ -11,7 +11,7 @@ from typing import Dict, List, Optional, Union, Any
 
 import lyricsgenius
 from dotenv import load_dotenv
-from mcp.server.fastmcp import FastMCP, Image
+from fastmcp import FastMCP
 
 # Import our reusable MCP logging module
 from mcp_logging import configure_logging
@@ -182,11 +182,7 @@ else:
 logger.info("Genius client initialized successfully")
 
 # Create FastMCP server
-mcp = FastMCP(
-    "LyricsGenius",
-    description="Access song lyrics and artist information from Genius.com",
-    dependencies=["lyricsgenius", "python-dotenv"]
-)
+mcp = FastMCP("LyricsGenius")
 
 # ----- CORE SEARCH TOOLS -----
 

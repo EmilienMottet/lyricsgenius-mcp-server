@@ -13,50 +13,62 @@ A Model Context Protocol (MCP) server for accessing song lyrics and artist infor
 
 ## Requirements
 
-- Python 3.8+
+- Python 3.10+
+- FastMCP 2.13.0+
 - LyricsGenius API token (get one from https://genius.com/api-clients)
 
 ## Installation
 
 1. Clone this repository
-   ```
+   ```bash
    git clone <repository-url>
-   cd lyricsgenius-mcp
+   cd lyricsgenius-mcp-server
    ```
 
-2. Create a virtual environment
-   ```
-   uv venv
-   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-   ```
-
-3. Install dependencies
-   ```
-   uv pip install -r requirements.txt
+2. Install dependencies
+   ```bash
+   pip install -r requirements.txt
    ```
 
-4. Set up your Genius API token
-   - Create a copy of `.env` and rename it to `.env`
-   - Replace `your_token_here` with your actual Genius API token
+3. Set up your Genius API token
+   - Create a `.env` file in the project root
+   - Add your Genius API token:
+     ```
+     GENIUS_TOKEN=your_token_here
+     ```
 
 ## Usage
 
-### Running the server directly
+### Running with FastMCP (Recommended)
 
-```
-python server.py
+FastMCP 2.13+ provides the modern way to run MCP servers:
+
+```bash
+# Run directly using fastmcp.json configuration
+fastmcp run
+
+# Or specify the server file explicitly
+fastmcp run server.py
 ```
 
 ### Installing in Claude Desktop
 
-```
-mcp install server.py
+```bash
+fastmcp install claude-desktop
 ```
 
-### Running with MCP development tools
+This will automatically configure Claude Desktop to use your server.
 
+### Development Mode
+
+```bash
+fastmcp dev
 ```
-mcp dev server.py
+
+### Running the server directly
+
+```bash
+python server.py
 ```
 
 ## Server Capabilities

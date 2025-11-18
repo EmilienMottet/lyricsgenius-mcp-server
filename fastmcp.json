@@ -1,0 +1,19 @@
+{
+  "$schema": "https://gofastmcp.com/public/schemas/fastmcp.json/v1.json",
+  "source": {
+    "path": "server.py",
+    "entrypoint": "mcp"
+  },
+  "environment": {
+    "python": ">=3.10",
+    "dependencies": [
+      "fastmcp>=2.13.0",
+      "lyricsgenius>=3.0.1",
+      "python-dotenv>=1.0.0"
+    ]
+  },
+  "deployment": {
+    "transport": "stdio",
+    "log_level": "INFO"
+  }
+}
